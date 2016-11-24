@@ -26,7 +26,7 @@ class Cinch::DrewBot
 
     @linecount_before_update = linecount
 
-    File.open(@drew_log, 'w') {} # Start a fresh copy of log
+    File.open(@drew_log, 'w+') {} # Start a fresh copy of log
 
     File.open (@weechat_log) do |log|
       log.each_line do |line|

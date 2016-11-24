@@ -1,4 +1,3 @@
-
 # Add to configure.do stanza:
 #
 #  config.plugins.options[Cinch::Drewbot] = {
@@ -101,3 +100,4 @@ class Cinch::DrewBot
     random_line
     m.reply "#{@selected_line}"
   end
+end

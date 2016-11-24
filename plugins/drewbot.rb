@@ -43,7 +43,7 @@ class Cinch::DrewBot
   end
 
   def linecount
-    File.read(@drew_log).each_line.count
+    @lines = File.read(@drew_log).each_line.count
   end
 
   def date_range
@@ -52,8 +52,9 @@ class Cinch::DrewBot
   end
 
   def stats(m)
+    linecount
     date_range
-    m.reply "Total lines: #{linecount}"
+    m.reply "Total lines: #{@lines}"
     m.reply "Nicks tracked: #{@drews.count}"
     m.reply "Earliest line: #{@earliest_date}"
     m.reply "Latest line: #{@latest_date}"

@@ -10,7 +10,7 @@
 class Cinch::DrewBot
   include Cinch::Plugin
 
-  listen_to :connect, :method => :setup
+  listen_to :connect, method: :setup
 
   match /drew (.+)/, method: :extract
   match /drew\z/, method: :extract_without_query

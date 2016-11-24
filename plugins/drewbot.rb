@@ -10,6 +10,8 @@
 class Cinch::DrewBot
   include Cinch::Plugin
 
+  listen_to :connect, :method => :setup
+
   match /drew (.+)/, method: :extract
   match /drew\z/, method: :extract_without_query
   match /drew_update/, method: :update
@@ -28,7 +30,7 @@ class Cinch::DrewBot
 
     File.open(@drew_log, 'w+') {} # Start a fresh copy of log
 
-    File.open (@weechat_log) do |log|
+    File.open(@weechat_log) do |log|
       log.each_line do |line|
         if drews.include? line.split(/\t/)[1].sub(/@/,'')
           File.open(@drew_log, 'a') { |file| file << line }

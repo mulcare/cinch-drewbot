@@ -32,7 +32,7 @@ class Cinch::DrewBot
 
     File.open(@weechat_log) do |log|
       log.each_line do |line|
-        if drews.include? line.split(/\t/)[1].sub(/@/,'').sub(/+/,'')
+        if drews.include? line.split(/\t/)[1].sub(/@/,'').sub(/\+/,'')
           File.open(@drew_log, 'a') { |file| file << line }
         end
       end
